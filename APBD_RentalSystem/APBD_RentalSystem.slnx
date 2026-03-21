@@ -1,1 +1,4 @@
-<Solution />
+<Solution>
+  <Project Path="DataModels/DataModels.csproj" />
+  <Project Path="RentalApp/RentalApp.csproj" />
+</Solution>
