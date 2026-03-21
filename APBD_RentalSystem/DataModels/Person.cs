@@ -10,6 +10,14 @@ namespace DataModels
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
 
+        protected Person() { }
+
+        protected Person(int id, string firstName, string lastName)
+        {
+            Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+        }
 
         public virtual string getDisplayInfo() 
         {
