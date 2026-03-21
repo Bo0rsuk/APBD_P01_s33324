@@ -14,8 +14,8 @@ namespace DataModels
         public Student(int id, string firstName, string lastName, string indexNumber, string major)
             : base(id, firstName, lastName)
         {
-            IndexNumber = indexNumber;
-            Major = major;
+            this.IndexNumber = indexNumber;
+            this.Major = major;
         }
 
         public override string getDisplayInfo()

@@ -1,5 +1,6 @@
 <Solution>
+  <Project Path="BusinessLogic/BusinessLogic.csproj" />
   <Project Path="DataModels/DataModels.csproj" />
-  <Project Path="DataServices/DataServices.csproj" />
+  <Project Path="DataProcessing/DataProcessing.csproj" Id="4732d5a9-af72-456f-8958-1ed9d44d3380" />
   <Project Path="RentalApp/RentalApp.csproj" />
 </Solution>

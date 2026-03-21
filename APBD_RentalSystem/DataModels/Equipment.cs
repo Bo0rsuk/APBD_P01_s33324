@@ -9,6 +9,8 @@ namespace DataModels
         public int Id { get; set; }
         public decimal Weight { get; set; }
 
+        public bool IsAvailable { get; set; } = true;
+
         protected Equipment() { }
         protected Equipment(int id, decimal weight)
         {
@@ -18,7 +20,7 @@ namespace DataModels
 
         public virtual string getDisplayInfo()
         {
-            return $"{Id}: {Weight}";
+            return $"{Id}: {Weight} {IsAvailable}";
         }
     }
 }
