@@ -36,6 +36,11 @@ namespace DataProcessing
         {
             _equipments.Add(equipment);
         }
+        public void UpdateEquipmentAvailability(int id)
+        {
+            var equipment = GetEquipmentById(id);
+            equipment.IsAvailable = !equipment.IsAvailable;
+        }
         public Equipment? GetEquipmentById(int id)
         {
             return _equipments.FirstOrDefault(e => e.Id == id);

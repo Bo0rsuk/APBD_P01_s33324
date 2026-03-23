@@ -5,7 +5,6 @@ namespace DataProcessing
 {
     public interface IDataRepository
     {
-        //add CRUD methods here
         // for Person
         void AddPerson(Person person);
         Person? GetPersonById(int id);
@@ -13,6 +12,7 @@ namespace DataProcessing
 
         //for Equipment
         void AddEquipment(Equipment equipment);
+        void UpdateEquipmentAvailability(int id);
         Equipment? GetEquipmentById(int id);
         List<Equipment> GetAllEquipment();
 

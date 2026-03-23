@@ -124,7 +124,7 @@ namespace BusinessLogic
                 return false;
             }
 
-            int activeRentsForPerson = _repository.GetAllRentals().Count(r => r.Person == person && !r.IsReturned);
+            int activeRentsForPerson = _repository.GetAllRentals().Count(r => r.PersonId == person.Id && !r.IsReturned);
             if (activeRentsForPerson >= GetMaxRentsOfPerson(person)) 
             {
                 return false; 
@@ -133,8 +133,8 @@ namespace BusinessLogic
             var rental = new RentalCard
             {
                 Id = _repository.GenerateRentalId(),
-                Person = person,
-                Equipment = equipment,
+                PersonId = person.Id,
+                EquipmentId = equipment.Id,
                 RentDate = DateOnly.FromDateTime(DateTime.Now),
                 DueDate = DateOnly.FromDateTime(DateTime.Now).AddDays(days),
                 ReturnDate = null
@@ -155,7 +155,7 @@ namespace BusinessLogic
             }
 
             rental.ReturnDate = DateOnly.FromDateTime(DateTime.Now);
-            rental.Equipment.IsAvailable = true;
+            _repository.UpdateEquipmentAvailability(rental.EquipmentId);
 
             return true;
         }

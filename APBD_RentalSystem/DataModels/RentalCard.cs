@@ -8,8 +8,8 @@ namespace DataModels
     public class RentalCard
     {
         public int Id { get; set; }
-        public Equipment Equipment { get; set; }
-        public Person Person { get; set; }
+        public int EquipmentId { get; set; }
+        public int PersonId { get; set; }
         public DateOnly RentDate { get; set; }
         public DateOnly DueDate { get; set; }
         public bool IsReturned { get; set; } = false;
@@ -17,11 +17,11 @@ namespace DataModels
 
         public RentalCard() { }
 
-        public RentalCard(int id, Equipment equipment, Person person, DateOnly rentDate, DateOnly dueDate, DateOnly returnDate)
+        public RentalCard(int id, int equipmentId, int personId, DateOnly rentDate, DateOnly dueDate, DateOnly returnDate)
         {
             Id = id;
-            Equipment = equipment;
-            Person = person;
+            EquipmentId = equipmentId;
+            PersonId = personId;
             RentDate = rentDate;
             DueDate = dueDate;
             ReturnDate = returnDate;
