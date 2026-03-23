@@ -1,9 +1,6 @@
 ﻿using DataModels;
 using DataModels.Abstracts;
 using DataProcessing;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BusinessLogic
 {
@@ -127,7 +124,7 @@ namespace BusinessLogic
                 return false;
             }
 
-            int activeRentsForPerson = _repository.GetAllRentals().Count(r => r.PersonId == personId && !r.IsReturned);
+            int activeRentsForPerson = _repository.GetAllRentals().Count(r => r.Person == person && !r.IsReturned);
             if (activeRentsForPerson >= GetMaxRentsOfPerson(person)) 
             {
                 return false; 
@@ -160,17 +157,17 @@ namespace BusinessLogic
             rental.ReturnDate = DateOnly.FromDateTime(DateTime.Now);
             rental.Equipment.IsAvailable = true;
 
+            return true;
         }
 
         public List<RentalCard> GetAllRentals() 
         {
-
+            return _repository.GetAllRentals();
         }
 
-        private int GetMaxRentsOfPerson(Person person)
+        public int GetMaxRentsOfPerson(Person person)
         {
             return _rentLimits.TryGetValue(person.GetType(), out int limit) ? limit : 1;
         }
-
     }
 }
