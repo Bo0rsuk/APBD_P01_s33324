@@ -12,7 +12,7 @@ namespace DataModels
         public DateOnly RentDate { get; set; }
         public DateOnly DueDate { get; set; }
 
-        public DateOnly ReturnDate { get; set; }
+        public DateOnly? ReturnDate { get; set; }
 
         public RentalCard() { }
 

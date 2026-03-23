@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataModels.Abstracts;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,14 +7,13 @@ namespace DataModels
 {
     public class Camera : Equipment
     {
-        public string ModelName { get; set; } = string.Empty;
         public int MegaPixels { get; set; }
         public int MemorySize { get; set; }
 
         public Camera() { }
 
         public Camera(int id, decimal weight, string modelName, int megaPixels, int memorySize)
-            : base(id, weight)
+            : base(id, modelName, weight)
         {
             this.ModelName = modelName;
             this.MegaPixels = megaPixels;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataModels.Abstracts;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,21 +7,21 @@ namespace DataModels
 {
     public class Student : Person
     {
-        public string IndexNumber { get; set; } = string.Empty;
+        public decimal AverageMark { get; set; }
         public string Major { get; set; } = string.Empty;
 
         public Student() { }
 
-        public Student(int id, string firstName, string lastName, string indexNumber, string major)
+        public Student(int id, string firstName, string lastName, decimal averageMark, string major)
             : base(id, firstName, lastName)
         {
-            this.IndexNumber = indexNumber;
+            this.AverageMark = averageMark;
             this.Major = major;
         }
 
         public override string getDisplayInfo()
         {
-            return $"{base.getDisplayInfo()} | {IndexNumber} {Major}";
+            return $"{base.getDisplayInfo()} | {AverageMark} {Major}";
         }
     }
 }

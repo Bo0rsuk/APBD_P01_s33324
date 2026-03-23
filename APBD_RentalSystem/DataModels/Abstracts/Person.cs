@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataModels
+namespace DataModels.Abstracts
 {
     public abstract class Person
     {
