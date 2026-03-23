@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BusinessLogic
 {
-    public interface IBuisnessLogic
+    public interface IBusinessLogic
     {
         // for Person
         void AddStudent(string firstName, string lastName, decimal averageMark, string major);
