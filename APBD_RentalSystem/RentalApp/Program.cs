@@ -14,8 +14,11 @@ Console.WriteLine("=== Rental App Demo ===\n" +
 int logNumber = 1;
 Console.WriteLine($"\n{logNumber}. Empty data repository showcase:");
 
+Console.WriteLine("People:");
 PrintCollection(logic.GetAllPeople());
+Console.WriteLine("Equipment:");
 PrintCollection(logic.GetAllEquipment());
+Console.WriteLine("Rentals:");
 PrintCollection(logic.GetAllRentals());
 
 Pause();
@@ -89,6 +92,8 @@ logic.RentEquipment(1, 3, 4);
 logic.RentEquipment(3, 4, 7);
 
 PrintCollection(logic.GetAllRentals());
+
+PrintCollection(logic.GetAvailableEquipment());
 
 Pause();
 logNumber++;

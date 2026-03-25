@@ -12,8 +12,10 @@ namespace BusinessLogic
         private readonly Dictionary<Type, int> _rentLimits = new()
         {
             { typeof(Student), 2 },
-            { typeof(Employee), 5  }
+            { typeof(Employee), 5 }
         };
+
+        private readonly decimal _overdueFeePerDay = 3.5m;
 
         public BusinessLogic(IDataRepository repository)
         {
@@ -193,6 +195,40 @@ namespace BusinessLogic
         public int GetMaxRentsOfPerson(Person person)
         {
             return _rentLimits.TryGetValue(person.GetType(), out int limit) ? limit : 1;
+        }
+
+        public decimal CalculateFee(RentalCard rental)
+        {
+            DateOnly today = DateOnly.FromDateTime(DateTime.Now);
+            DateOnly endDate = rental.ReturnDate ?? today;
+
+            if (endDate <= rental.DueDate)
+            {
+                return 0;
+            }
+
+            int overdueDays = endDate.DayNumber - rental.DueDate.DayNumber;
+
+            return overdueDays * _overdueFeePerDay;
+        }
+
+        public List<RentalCard> GetOverDueRentals()
+        {
+            DateOnly today = DateOnly.FromDateTime(DateTime.Now);
+
+            return _repository.GetAllRentals()
+                .Where(r => !r.IsReturned && r.DueDate < today)
+                .ToList();
+        }
+
+        public List<(RentalCard rental, decimal fee)> GetOverdueRentalsWithFees()
+        {
+            DateOnly today = DateOnly.FromDateTime(DateTime.Now);
+
+            return _repository.GetAllRentals()
+                .Where(r => !r.IsReturned && r.DueDate < today)
+                .Select(r => (r, CalculateFee(r)))
+                .ToList();
         }
     }
 }

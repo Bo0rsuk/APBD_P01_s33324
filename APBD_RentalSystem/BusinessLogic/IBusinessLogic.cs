@@ -30,6 +30,9 @@ namespace BusinessLogic
         List<RentalCard> GetRentalCardsOfPersonByItsId(int id);
         RentalCard? GetRentalCardById(int Id);
         List<RentalCard> GetAllRentals();
+        decimal CalculateFee(RentalCard rental);
+        List<RentalCard> GetOverDueRentals();
+        List<(RentalCard rental, decimal fee)> GetOverdueRentalsWithFees();
 
         // helper
         int GetMaxRentsOfPerson(Person person);
