@@ -50,9 +50,9 @@ Mój zamysł polegał na zrealizowaniu *warstwowej infrastruktury* aplikacji. Fi
 
 Z racji na ograniczoną wiedzę (jestem dopiero w połowie książki Roberta C. Martina) jak i brak konieczności implementacji wszystkich warstw postanowiłem szczególnie zadbać o odpowiednie zrealizowanie idei zależności pomiędzy dwoma najbardziej rozwiniętymi warstwami w moim rozwiązaniu.
 Dostęp zarówno do BuisnessLogic jak i DataRepository odbywa się przez interfejsy, co tworzy *luźne powiązania* (loose coupling) i umożliwia wymianę implementacji tych komponentów na inną (gdy np. zmienią się nam reguły biznesowe).
-Powodują również *odwrócenie zależności* (dependency inversion) a *wstrzykiwanie zależności* (dependency injection) odbywa się w konstruktorze.
+Interfejsy powodują również *odwrócenie zależności* (dependency inversion) a *wstrzykiwanie zależności* (dependency injection) odbywa się w konstruktorze.
 
 ## Flow zależności:
 UI (tutaj demo) opiera się wyłącznie na abstrakcjach.
 Logika biznesowa zależy wyłącznie od interfejsu repozytorium (IDataRepository) a nie konkretnej implementacji.
-Implementacja repozytorium może zostać wymieniona pomiędzy in-memory, serializacją do JSONa, bazą danych.
+Implementacja repozytorium może zostać wymieniona pomiędzy in-memory, serializacją do JSONa, bazą danych itp.
