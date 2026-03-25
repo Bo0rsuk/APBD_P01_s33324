@@ -23,7 +23,7 @@ namespace DataModels.Abstracts
 
         public override string ToString()
         {
-            return $"{Id}: {Weight} {IsAvailable}";
+            return $"({Id}) {Weight} {IsAvailable}";
         }
     }
 }

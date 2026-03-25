@@ -51,8 +51,14 @@ Console.WriteLine($"\n{logNumber}. Fetching people and equipment by Id...");
 
 int toFetchId = 1;
 
-var person = logic.get
+var personFetchedById = logic.GetPersonById(toFetchId);
+var equipmentFetchedById = logic.GetEquipmentById(toFetchId);
 
+Console.WriteLine($"Person with ID={toFetchId}: {personFetchedById}");
+Console.WriteLine($"Equipment with ID={toFetchId}: {equipmentFetchedById}");
+
+Pause();
+logNumber++;
 
 
 

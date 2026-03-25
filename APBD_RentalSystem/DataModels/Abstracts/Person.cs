@@ -21,7 +21,7 @@ namespace DataModels.Abstracts
 
         public override string ToString() 
         {
-            return $"{Id}: {FirstName} {LastName}";
+            return $"({Id}): {FirstName} {LastName}";
         }
     }
 }
