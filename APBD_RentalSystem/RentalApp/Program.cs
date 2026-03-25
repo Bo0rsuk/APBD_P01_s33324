@@ -60,6 +60,18 @@ Console.WriteLine($"Equipment with ID={toFetchId}: {equipmentFetchedById}");
 Pause();
 logNumber++;
 
+Console.WriteLine($"\n{logNumber}. Marking equipment as unavailable (for example due to breakdown)...");
+
+Console.WriteLine("Before change:");
+PrintCollection(logic.GetAllEquipment());
+
+int toChangeAvailabilityId = 1;
+logic.ChangeEquipmentAvailability(toChangeAvailabilityId);
+toChangeAvailabilityId += 3;
+logic.ChangeEquipmentAvailability(toChangeAvailabilityId);
+
+Console.WriteLine("After change:");
+PrintCollection(logic.GetAllEquipment());
 
 
 

@@ -101,6 +101,11 @@ namespace BusinessLogic
             _repository.AddEquipment(headset);
         }
 
+        public void ChangeEquipmentAvailability(int id)
+        {
+            _repository.UpdateEquipmentAvailability(id);
+        }
+
         public Equipment? GetEquipmentById(int id)
         {
             return _repository.GetEquipmentById(id);

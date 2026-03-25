@@ -19,6 +19,7 @@ namespace BusinessLogic
         void AddLaptop(decimal weight, string modelName, int RAM, int diskSize);
         void AddCamera(decimal weight, string modelName, int megaPixels, int memorySize);
         void AddHeadset(decimal weight, string modelName, bool isWireless, bool hasMicrophone);
+        void ChangeEquipmentAvailability(int id);
         Equipment? GetEquipmentById(int id);
         List<Equipment> GetAllEquipment();
         List<Equipment> GetAvailableEquipment();
