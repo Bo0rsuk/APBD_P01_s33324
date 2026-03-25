@@ -7,7 +7,7 @@ System wspiera następujace funkcje:
 * wyświetlanie ludzi, sprzętu, wypożyczeń z możliwością filtrowania po konkretnych parametrach (np dostępne dla sprzętu)
 * pilnowanie reguł biznesowych takich jak kara za przeterminowanie wypożyczenia lub maksymalne limity wypożyczeń dla osoby
 
-# Architektura projektu
+# Ogólna struktura rozwiązania
 Solucja jest podzielona na 4 główne projekty w celu rozdzielenia kodu na komponenty o wspólnej roli:
 * RentalApp
 * DataProcessing
@@ -22,9 +22,10 @@ To swego rodzaju Persistance Layer połączony z Database Layer, ponieważ pełn
 Zawiera klasy takie jak:
 * IDataRepository - interfejs
 * DataRepository - implementacja
+Udostępnia w stylu repozytorium metody CRUD (no prawie, nie wszystkie)
 
 ## DataModels
-To projek zawierający implementacje wszyskich modeli używanych w programie.
+To projekt zawierający implementację wszystkich modeli używanych w programie.
 W katalogu *abstract* znajduja się bazowe klasy abstrakcyjne:
 * Person
 * Equipment
@@ -37,3 +38,14 @@ Z tych klas bazowych dziedziczą klasy:
   * Camera
   * Headset
 Te klasy posiadają odpowiednie properties.
+
+## BusinessLogic
+To projekt odpowiadający Business Layer odpowiedzialną za logikę biznesową aplikacji.
+Zawiera klasy:
+* IBusinessLogic - interfejs
+* BusinessLogic - implementacja
+
+# Architektura rozwiązania
+Mój zamysł polegał na zrealizowaniu warstwowej infrastruktury aplikacji. Fizyczny podział na projekty wewnątrz solucji był pomysłem na uwidocznienie tych warstw.
+Z racji na ograniczoną wiedzę (jestem dopiero w połowie książki Roberta C. Martina) jak i brak konieczności implementacji wszystkich warstw postanowiłem szczególnie zadbać o odpowiednie zrealizowanie idei zależności pomiędzy dwoma najbardziej rozwiniętymi warstwami w moim rozwiązaniu.
+Dostęp zarówno do BuisnessLogic jak i DataRepository odbywa się przez interfejsy, co tworzy luźne powiązania (loose coupling) i umożliwia wymianę implementacji tych komponentów na inną (gdy np. zmienią się nam reguły biznesowe).
