@@ -56,6 +56,10 @@ namespace DataProcessing
         {
             _rentalCards.Add(rental);
         }
+        public List<RentalCard> GetRentalCardsOfPersonByItsId(int id)
+        {
+            return _rentalCards.Where(rc => rc.PersonId == id).ToList();
+        }
         public RentalCard? GetRentalById(int id)
         {
             return _rentalCards.FirstOrDefault(r => r.Id == id);

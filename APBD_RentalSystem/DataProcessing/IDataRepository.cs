@@ -18,6 +18,7 @@ namespace DataProcessing
 
         // for rentals
         void AddRental(RentalCard rental);
+        List<RentalCard> GetRentalCardsOfPersonByItsId(int id);
         RentalCard? GetRentalById(int id);
         List<RentalCard> GetAllRentals();
 

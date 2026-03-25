@@ -175,6 +175,11 @@ namespace BusinessLogic
             return true;
         }
 
+        public List<RentalCard> GetRentalCardsOfPersonByItsId(int id)
+        {
+            return _repository.GetRentalCardsOfPersonByItsId(id);
+        }
+
         public RentalCard? GetRentalCardById(int Id)
         {
             return _repository.GetRentalById(Id);

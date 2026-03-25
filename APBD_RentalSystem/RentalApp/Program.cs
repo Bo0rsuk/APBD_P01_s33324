@@ -50,7 +50,6 @@ logNumber++;
 Console.WriteLine($"\n{logNumber}. Fetching people and equipment by Id...");
 
 int toFetchId = 1;
-
 var personFetchedById = logic.GetPersonById(toFetchId);
 var equipmentFetchedById = logic.GetEquipmentById(toFetchId);
 
@@ -72,6 +71,46 @@ logic.ChangeEquipmentAvailability(toChangeAvailabilityId);
 
 Console.WriteLine("After change:");
 PrintCollection(logic.GetAllEquipment());
+
+Pause();
+logNumber++;
+
+Console.WriteLine($"\n{logNumber}. Fetching available equipment...");
+
+PrintCollection(logic.GetAvailableEquipment());
+
+Pause();
+logNumber++;
+
+Console.WriteLine($"\n{logNumber}. Renting equipment to people...");
+
+logic.RentEquipment(1, 2, 5);
+logic.RentEquipment(1, 3, 4);
+logic.RentEquipment(3, 4, 7);
+
+PrintCollection(logic.GetAllRentals());
+
+Pause();
+logNumber++;
+
+Console.WriteLine($"\n{logNumber}. Returning a rent...");
+
+int toReturnRentId = 3;
+logic.ReturnEquipment(toReturnRentId);
+
+PrintCollection(logic.GetAllRentals());
+
+Pause();
+logNumber++;
+
+Console.WriteLine($"\n{logNumber}. Rentals for specific person...");
+
+int personToGetRentalsId = 1;
+
+PrintCollection(logic.GetRentalCardsOfPersonByItsId(personToGetRentalsId));
+
+Pause();
+logNumber++;
 
 
 

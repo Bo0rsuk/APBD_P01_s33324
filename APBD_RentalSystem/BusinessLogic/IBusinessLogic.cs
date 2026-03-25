@@ -27,6 +27,7 @@ namespace BusinessLogic
         // for renting
         bool RentEquipment(int personId, int equipmentId, int days);
         bool ReturnEquipment(int rentalCardId);
+        List<RentalCard> GetRentalCardsOfPersonByItsId(int id);
         RentalCard? GetRentalCardById(int Id);
         List<RentalCard> GetAllRentals();
 
