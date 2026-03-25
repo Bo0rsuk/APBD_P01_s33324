@@ -49,6 +49,11 @@ namespace BusinessLogic
             _repository.AddPerson(employee);
         }
 
+        public Person? GetPersonById(int id)
+        {
+            return _repository.GetPersonById(id);
+        }
+
         public List<Person> GetAllPeople()
         {
             return _repository.GetAllPeople();
@@ -94,6 +99,11 @@ namespace BusinessLogic
             };
 
             _repository.AddEquipment(headset);
+        }
+
+        public Equipment? GetEquipmentById(int id)
+        {
+            return _repository.GetEquipmentById(id);
         }
 
         public List<Equipment> GetAllEquipment() 
@@ -158,6 +168,11 @@ namespace BusinessLogic
             _repository.UpdateEquipmentAvailability(rental.EquipmentId);
 
             return true;
+        }
+
+        public RentalCard? GetRentalCardById(int Id)
+        {
+            return _repository.GetRentalById(Id);
         }
 
         public List<RentalCard> GetAllRentals() 

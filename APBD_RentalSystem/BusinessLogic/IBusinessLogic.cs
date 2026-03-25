@@ -11,6 +11,7 @@ namespace BusinessLogic
         // for Person
         void AddStudent(string firstName, string lastName, decimal averageMark, string major);
         void AddEmployee(string firstName, string lastName, string position, decimal salary);
+        Person? GetPersonById(int id);
         List<Person> GetAllPeople();
 
         // for Equipment
@@ -18,12 +19,14 @@ namespace BusinessLogic
         void AddLaptop(decimal weight, string modelName, int RAM, int diskSize);
         void AddCamera(decimal weight, string modelName, int megaPixels, int memorySize);
         void AddHeadset(decimal weight, string modelName, bool isWireless, bool hasMicrophone);
+        Equipment? GetEquipmentById(int id);
         List<Equipment> GetAllEquipment();
         List<Equipment> GetAvailableEquipment();
 
         // for renting
         bool RentEquipment(int personId, int equipmentId, int days);
         bool ReturnEquipment(int rentalCardId);
+        RentalCard? GetRentalCardById(int Id);
         List<RentalCard> GetAllRentals();
 
         // helper
