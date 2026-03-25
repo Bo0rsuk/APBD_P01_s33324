@@ -20,9 +20,9 @@ namespace DataModels
             this.MemorySize = memorySize;
         }
 
-        public override string getDisplayInfo()
+        public override string ToString()
         {
-            return $"{base.getDisplayInfo()} | {ModelName} {MegaPixels} {MemorySize}";
+            return $"{base.ToString()} | {ModelName} {MegaPixels} {MemorySize}";
         }
     }
 }

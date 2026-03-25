@@ -19,9 +19,9 @@ namespace DataModels
             this.Salary = salary;
         }
 
-        public override string getDisplayInfo()
+        public override string ToString()
         {
-            return $"{base.getDisplayInfo()} | {Position} {Salary}";
+            return $"{base.ToString()} | {Position} {Salary}";
         }
     }
 }

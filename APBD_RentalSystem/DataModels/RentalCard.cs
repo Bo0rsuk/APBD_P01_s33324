@@ -26,5 +26,10 @@ namespace DataModels
             DueDate = dueDate;
             ReturnDate = returnDate;
         }
+
+        public override string ToString()
+        {
+            return $"{Id} {EquipmentId} {PersonId} {RentDate} {DueDate} {ReturnDate}";
+        }
     }
 }

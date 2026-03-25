@@ -19,9 +19,9 @@ namespace DataModels
             HasMicrophone = hasMicrophone;
         }
 
-        public override string getDisplayInfo()
+        public override string ToString()
         {
-            return $"{base.getDisplayInfo()} | {IsWireless} {HasMicrophone}";
+            return $"{base.ToString()} | {IsWireless} {HasMicrophone}";
         }
     }
 }

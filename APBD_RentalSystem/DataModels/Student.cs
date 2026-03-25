@@ -19,9 +19,9 @@ namespace DataModels
             this.Major = major;
         }
 
-        public override string getDisplayInfo()
+        public override string ToString()
         {
-            return $"{base.getDisplayInfo()} | {AverageMark} {Major}";
+            return $"{base.ToString()} | {AverageMark} {Major}";
         }
     }
 }

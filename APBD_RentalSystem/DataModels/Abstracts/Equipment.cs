@@ -21,7 +21,7 @@ namespace DataModels.Abstracts
             this.Weight = weight;
         }
 
-        public virtual string getDisplayInfo()
+        public override string ToString()
         {
             return $"{Id}: {Weight} {IsAvailable}";
         }

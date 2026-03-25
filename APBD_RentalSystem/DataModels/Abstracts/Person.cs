@@ -19,7 +19,7 @@ namespace DataModels.Abstracts
             LastName = lastName;
         }
 
-        public virtual string getDisplayInfo() 
+        public override string ToString() 
         {
             return $"{Id}: {FirstName} {LastName}";
         }

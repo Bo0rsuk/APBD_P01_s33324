@@ -20,9 +20,9 @@ namespace DataModels
             this.DiskSize = diskSize;
         }
 
-        public override string getDisplayInfo()
+        public override string ToString()
         {
-            return $"{base.getDisplayInfo()} | {ModelName} {RAM} {DiskSize}";
+            return $"{base.ToString()} | {ModelName} {RAM} {DiskSize}";
         }
     }
 }
